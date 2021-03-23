@@ -29,7 +29,7 @@ class AutoPrefetchViewSetMixin:
         return prefetch(qs, serializer)
 
 
-def prefetch(queryset, serializer: Type[ModelSerializer]):
+def prefetch(queryset:models.QuerySet, serializer: Type[ModelSerializer]) -> models.QuerySet:
     select_related, prefetch_related = _prefetch(serializer)
     try:
         if select_related:
